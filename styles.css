@@ -103,6 +103,150 @@ body {
   .ray11 { transform: rotate(300deg); }
   .ray12 { transform: rotate(330deg); }
   
+  /* Cloud styling - IMPROVED VISIBILITY */
+  .cloud {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50px;
+    z-index: 90;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+  }
+  
+  .cloud::before,
+  .cloud::after {
+    content: '';
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+  }
+  
+  /* Cloud 1 - large cloud top left */
+  .cloud1 {
+    width: 150px;
+    height: 60px;
+    top: 80px;
+    left: 100px;
+    animation: float 30s linear infinite;
+    background: linear-gradient(to bottom, #ffffff 60%, #f2f2f2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 
+                inset 0 -5px 15px rgba(0, 0, 0, 0.05),
+                inset 0 5px 15px rgba(255, 255, 255, 0.8);
+  }
+  
+  .cloud1::before {
+    width: 90px;
+    height: 90px;
+    top: -50px;
+    left: 15px;
+    background: linear-gradient(to bottom, #ffffff 60%, #f0f0f0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .cloud1::after {
+    width: 80px;
+    height: 80px;
+    top: -35px;
+    left: 60px;
+    background: linear-gradient(to bottom, #ffffff 60%, #f0f0f0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Cloud 2 - medium cloud middle */
+  .cloud2 {
+    width: 130px;
+    height: 55px;
+    top: 150px;
+    left: 40%;
+    animation: float 25s linear infinite reverse;
+    animation-delay: -5s;
+    background: linear-gradient(to bottom, #ffffff 60%, #f2f2f2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 
+                inset 0 -5px 15px rgba(0, 0, 0, 0.05),
+                inset 0 5px 15px rgba(255, 255, 255, 0.8);
+  }
+  
+  .cloud2::before {
+    width: 80px;
+    height: 80px;
+    top: -40px;
+    left: 10px;
+    background: linear-gradient(to bottom, #ffffff 60%, #f0f0f0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .cloud2::after {
+    width: 70px;
+    height: 70px;
+    top: -30px;
+    left: 60px;
+    background: linear-gradient(to bottom, #ffffff 60%, #f0f0f0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Cloud 3 - small cloud top right */
+  .cloud3 {
+    width: 100px;
+    height: 45px;
+    top: 120px;
+    right: 150px;
+    animation: float 20s linear infinite;
+    animation-delay: -10s;
+    background: linear-gradient(to bottom, #ffffff 60%, #f2f2f2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 
+                inset 0 -5px 15px rgba(0, 0, 0, 0.05),
+                inset 0 5px 15px rgba(255, 255, 255, 0.8);
+  }
+  
+  .cloud3::before {
+    width: 65px;
+    height: 65px;
+    top: -35px;
+    left: 5px;
+    background: linear-gradient(to bottom, #ffffff 60%, #f0f0f0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .cloud3::after {
+    width: 55px;
+    height: 55px;
+    top: -25px;
+    left: 45px;
+    background: linear-gradient(to bottom, #ffffff 60%, #f0f0f0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Cloud 4 - tiny cloud bottom left */
+  .cloud4 {
+    width: 80px;
+    height: 35px;
+    top: 230px;
+    left: 70%;
+    animation: float 35s linear infinite reverse;
+    animation-delay: -15s;
+    background: linear-gradient(to bottom, #ffffff 60%, #f2f2f2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 
+                inset 0 -5px 15px rgba(0, 0, 0, 0.05),
+                inset 0 5px 15px rgba(255, 255, 255, 0.8);
+  }
+  
+  .cloud4::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 5px;
+    background: linear-gradient(to bottom, #ffffff 60%, #f0f0f0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .cloud4::after {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: 35px;
+    background: linear-gradient(to bottom, #ffffff 60%, #f0f0f0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+  
   /* Animations */
   @keyframes glow {
     0% {
@@ -119,6 +263,16 @@ body {
     }
     100% {
       opacity: 1;
+    }
+  }
+  
+  /* Cloud floating animation */
+  @keyframes float {
+    0% {
+      transform: translateX(-150px);
+    }
+    100% {
+      transform: translateX(calc(100vw + 150px));
     }
   }
   
