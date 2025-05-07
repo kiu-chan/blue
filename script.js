@@ -91,35 +91,4 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Start animation
     animate();
-    
-    // Add interactive effect - waves respond to mouse/touch movement
-    canvas.addEventListener('mousemove', function(e) {
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
-      
-      // Adjust wave parameters based on mouse position
-      waves.forEach(wave => {
-        // Mouse X position affects frequency
-        wave.frequency = 0.01 + (mouseX / canvas.width) * 0.03;
-        
-        // Mouse Y position affects amplitude
-        const relativeY = mouseY / window.innerHeight;
-        wave.amplitude = 15 + relativeY * 30;
-      });
-    });
-  
-    // Touch support for mobile devices
-    canvas.addEventListener('touchmove', function(e) {
-      e.preventDefault();
-      const touch = e.touches[0];
-      const mouseX = touch.clientX;
-      const mouseY = touch.clientY;
-      
-      // Adjust wave parameters based on touch position
-      waves.forEach(wave => {
-        wave.frequency = 0.01 + (mouseX / canvas.width) * 0.03;
-        const relativeY = mouseY / window.innerHeight;
-        wave.amplitude = 15 + relativeY * 30;
-      });
-    }, { passive: false });
   });

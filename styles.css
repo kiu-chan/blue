@@ -36,3 +36,102 @@ body {
     margin-bottom: 30vh;
     text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
   }
+  
+  /* Sun wrapper */
+  .sun-wrapper {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    z-index: 100;
+    width: 0;
+    height: 0;
+  }
+  
+  /* Sun styling */
+  .sun {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #FFC74E;
+    border-radius: 50%;
+    box-shadow: 0 0 30px 10px rgba(255, 199, 78, 0.7);
+    z-index: 101;
+    top: -30px;
+    left: -30px;
+    animation: glow 3s infinite alternate;
+  }
+  
+  /* Sun rays - individual rays instead of using pseudo-elements */
+  .ray {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    background-color: rgba(255, 199, 78, 0.7);
+    transform-origin: 30px 30px; /* Center at the sun's center */
+    animation: pulsate 2s infinite alternate ease-in-out;
+  }
+  
+  /* Long rays */
+  .ray1, .ray5, .ray9 {
+    width: 120px;
+    height: 4px;
+  }
+  
+  /* Medium rays */
+  .ray3, .ray7, .ray11 {
+    width: 100px;
+    height: 3px;
+  }
+  
+  /* Short rays */
+  .ray2, .ray4, .ray6, .ray8, .ray10, .ray12 {
+    width: 80px;
+    height: 2px;
+  }
+  
+  /* Position rays at different angles */
+  .ray1 { transform: rotate(0deg); }
+  .ray2 { transform: rotate(30deg); }
+  .ray3 { transform: rotate(60deg); }
+  .ray4 { transform: rotate(90deg); }
+  .ray5 { transform: rotate(120deg); }
+  .ray6 { transform: rotate(150deg); }
+  .ray7 { transform: rotate(180deg); }
+  .ray8 { transform: rotate(210deg); }
+  .ray9 { transform: rotate(240deg); }
+  .ray10 { transform: rotate(270deg); }
+  .ray11 { transform: rotate(300deg); }
+  .ray12 { transform: rotate(330deg); }
+  
+  /* Animations */
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 30px 10px rgba(255, 199, 78, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 40px 15px rgba(255, 199, 78, 0.9);
+    }
+  }
+  
+  @keyframes pulsate {
+    0% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Slow rotation for the entire sun-wrapper */
+  .sun-wrapper {
+    animation: rotate 60s linear infinite;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
